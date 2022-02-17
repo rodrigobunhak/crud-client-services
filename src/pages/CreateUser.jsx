@@ -5,12 +5,29 @@ import Header from '../components/Header'
 
 const CreateUser = () => {
 
-  const [userFullName, setUserFullName] = useState('')
-  const [userCpf, setUserCpf] = useState('')
   const navigate = useNavigate();
 
+  const [user, setUser] = useState({
+    fullName: '',
+    cpf: ''
+  })
+
+  const handleForm = (event) => {
+    const { name, value } = event.target;
+    
+    setUser({
+      ...user,
+      [name]: value,
+    })
+  }
+
+  console.log(user)
+
   const handleCreateUser = async () => {
-    await axios.post(`http://localhost:5001/users/`, { fullName: userFullName, cpf: userCpf })
+    await axios.post(`http://localhost:5001/users/`, {
+      fullName: user.fullName,
+      cpf: user.cpf
+    })
     navigate("/")
   }
 
@@ -27,10 +44,10 @@ const CreateUser = () => {
           </tr>
           <tr>
             <td>
-              <input type="text" onChange={(event) => { setUserFullName(event.target.value) }} />
+              <input type="text" name="fullName" onChange={handleForm} />
             </td>
             <td>
-              <input type="text" onChange={(event) => { setUserCpf(event.target.value) }} />
+              <input type="text" name="cpf" onChange={handleForm} />
             </td>
             <td>
               <button onClick={handleCreateUser}>Add User</button>
