@@ -43,8 +43,6 @@ const CreateUser = () => {
     navigate("/")
   }
 
-  console.log(user)
-
   return (
     <>
       <Header />

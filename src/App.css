@@ -132,6 +132,7 @@ img {
   width: 50px;
   height: 50px;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 .label {
@@ -360,6 +361,7 @@ select {
 .show-container__avatar img {
   width: 150px;
   height: 150px;
+  object-fit: cover;
 }
 
 .show-container__content {
