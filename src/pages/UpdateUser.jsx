@@ -6,63 +6,63 @@ import Header from '../components/Header'
 
 const UpdateUser = () => {
 
-  const [userFullName, setUserFullName] = useState('')
-  const [userCpf, setUserCpf] = useState('')
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  
-
-  const { id } = useParams();
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({
+    fullName: '',
+    cpf: ''
+  })
 
   useEffect(() => {
     getUser();
   }, [])
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    await axios.put(`http://localhost:5001/users/${id}`)
-  }
-
-  const handleName = (event) => {
-    setUserFullName(event)
-  }
-
-  const handleCpf = (event) => {
-    setUserCpf(event)
-  }
-
   const getUser = async () => {
     const result = await axios.get(`http://localhost:5001/users/${id}`)
-    setUserFullName(result.data.fullName)
-    setUserCpf(result.data.cpf)
+    setUser({
+      ...user,
+      "fullName": result.data.fullName,
+      "cpf": result.data.cpf
+    })
+  }
+
+  const handleForm = (event) => {
+    const { name, value } = event.target;
+    
+    setUser({
+      ...user,
+      [name]: value,
+    })
   }
 
   const handleUpdateUser = async () => {
-    await axios.put(`http://localhost:5001/users/${id}`, { fullName: userFullName, cpf: userCpf })
+    await axios.put(`http://localhost:5001/users/${id}`, {
+      fullName: user.fullName,
+      cpf: user.cpf 
+    })
     navigate("/")
   }
-
-  console.log('cpf: ', userCpf)
 
   return (
 
     <>
       <Header />
-      <div>Update</div>
+      <h1>Update</h1>
+      
       <Link to="/">Volta para página Home</Link>
       {
         <table>
           <tr>
-            <th>CPF</th>
             <th>Nome Completo</th>
+            <th>CPF</th>
           </tr>
           <tr>
             <td>
-              <input type="text" value={userCpf} onChange={(event) => {handleCpf(event.target.value)}} />
+              <input type="text" name="fullName" value={user.fullName} onChange={handleForm} />
             </td>
             <td>
-              <input type="text" value={userFullName} onChange={(event) => {handleName(event.target.value)}} />
+              <input type="text" name="cpf" value={user.cpf} onChange={handleForm} />
             </td>
             <td>
               <button onClick={handleUpdateUser}>Salvar</button>
