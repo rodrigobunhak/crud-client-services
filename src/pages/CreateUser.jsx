@@ -9,7 +9,13 @@ const CreateUser = () => {
 
   const [user, setUser] = useState({
     fullName: '',
-    cpf: ''
+    cpf: '',
+    surname: '',
+    gender: '',
+    phone: '',
+    address: '',
+    observation: '',
+    avatarURL: '',
   })
 
   const handleForm = (event) => {
@@ -21,12 +27,16 @@ const CreateUser = () => {
     })
   }
 
-  console.log(user)
-
   const handleCreateUser = async () => {
     await axios.post(`http://localhost:5001/users/`, {
       fullName: user.fullName,
-      cpf: user.cpf
+      cpf: user.cpf,
+      surname: user.surname,
+      gender: user.gender,
+      phone: user.phone,
+      address: user.address,
+      observation: user.observation,
+      avatarURL: user.avatarURL
     })
     navigate("/")
   }
@@ -41,6 +51,13 @@ const CreateUser = () => {
           <tr>
             <td>Nome completo</td>
             <td>CPF</td>
+            <td>Apelido</td>
+            <td>Genero</td>
+            <td>Telefone</td>
+            <td>Endereço</td>
+            <td>Observaçoes</td>
+            <td>Avatar URL</td>
+            <td>Action</td>
           </tr>
           <tr>
             <td>
@@ -48,6 +65,24 @@ const CreateUser = () => {
             </td>
             <td>
               <input type="text" name="cpf" onChange={handleForm} />
+            </td>
+            <td>
+              <input type="text" name="surname" onChange={handleForm} />
+            </td>
+            <td>
+              <input type="text" name="gender" onChange={handleForm} />
+            </td>
+            <td>
+              <input type="text" name="phone" onChange={handleForm} />
+            </td>
+            <td>
+              <input type="text" name="address" onChange={handleForm} />
+            </td>
+            <td>
+              <input type="text" name="observation" onChange={handleForm} />
+            </td>
+            <td>
+              <input type="text" name="avatarURL" onChange={handleForm} />
             </td>
             <td>
               <button onClick={handleCreateUser}>Add User</button>
