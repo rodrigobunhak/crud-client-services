@@ -31,7 +31,7 @@ const Home = () => {
           
           {users.map((user, key) => (
           <div className='card' key={key}>
-            <div className=''>
+            <div className='card-avatar'>
               <img src={user.avatarURL} alt="avatar" />
             </div>
             <div className='cardFullname'>

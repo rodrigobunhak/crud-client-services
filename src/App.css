@@ -89,11 +89,20 @@ table th {
 .card {
   display: flex;
   flex: 1;
-  background: #d3d3d3;
+  background: #2A4CA3;
   align-items: center;
   padding: 5px 15px;
   margin-bottom: 8px;
   border-radius: 5px;
+  color: #FFFFFF;
+}
+
+.card-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #18347a;
+  border-radius: 100%;
 }
 
 .card:hover {
@@ -170,8 +179,8 @@ img {
 }
 
 .buttonShowUser:hover {
-  background: #2A4CA3;
-  color: #FFFFFF;
+  filter: brightness(0.9);
+  transition: 0.2s;
 }
 
 .buttonUpdateUser {
