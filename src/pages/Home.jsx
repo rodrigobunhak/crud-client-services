@@ -14,7 +14,7 @@ const Home = () => {
   },[])
 
   const loadUser = async () => {
-    const result = await axios.get('http://localhost:5001/users');
+    const result = await axios.get('https://crud-grupo-services.herokuapp.com/users');
     setUsers(result.data)
   }
 

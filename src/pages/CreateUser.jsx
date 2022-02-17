@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header'
+import MaskedInput from '../components/MaskedInput';
 
 const CreateUser = () => {
 
@@ -30,7 +31,7 @@ const CreateUser = () => {
   }
 
   const handleCreateUser = async () => {
-    await axios.post(`http://localhost:5001/users/`, {
+    await axios.post(`https://crud-grupo-services.herokuapp.com/users/`, {
       fullName: user.fullName,
       cpf: user.cpf,
       surname: user.surname,
@@ -61,7 +62,7 @@ const CreateUser = () => {
           <div className='create-container__line__2'>
             <div>
               <label className='create-container__line__label'>Cpf</label>
-              <input type="text" name="cpf" onChange={handleForm} className='create-container__line__input' />
+              <MaskedInput value={user.cpf} onChange={(event) => setUser({...user, cpf: event.target.value})}/>
             </div>
             <div>
               <label className='create-container__line__label'>Apelido</label>

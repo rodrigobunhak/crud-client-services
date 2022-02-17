@@ -15,7 +15,7 @@ const UpdateUser = () => {
   },[])
 
   const loadOneUser = async () => {
-    const result = await axios.get(`http://localhost:5001/users/${id}`);
+    const result = await axios.get(`https://crud-grupo-services.herokuapp.com/users/${id}`);
     setUser(result.data)
   }
 
@@ -29,7 +29,7 @@ const UpdateUser = () => {
   }
 
   const handleUpdateUser = async () => {
-    await axios.put(`http://localhost:5001/users/${id}`, {
+    await axios.put(`https://crud-grupo-services.herokuapp.com/users/${id}`, {
       fullName: user.fullName,
       cpf: user.cpf,
       surname: user.surname,

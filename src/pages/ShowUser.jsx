@@ -14,12 +14,12 @@ const ShowUser = () => {
   },[])
 
   const loadOneUser = async () => {
-    const result = await axios.get(`http://localhost:5001/users/${id}`);
+    const result = await axios.get(`https://crud-grupo-services.herokuapp.com/users/${id}`);
     setUser(result.data)
   }
 
   const handleDeleteUser = async () => {
-    await axios.delete(`http://localhost:5001/users/${id}`)
+    await axios.delete(`https://crud-grupo-services.herokuapp.com/users/${id}`)
     navigate("/");
   }
 
