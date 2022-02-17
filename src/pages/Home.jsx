@@ -22,26 +22,38 @@ const Home = () => {
   return (
     <>
       <Header />
-      <h1>Home</h1>
       
-      <Link to="/create">Adicionar Usuário</Link>
-      
-      <table>
-        <tr>
-          <th>Nome Completo</th>
-          <th>CPF</th>
-          <th>Actions</th>
-        </tr>
-        {users.map((user, key) => (
-          <tr key={key}>
-            <td>{user.fullName}</td>
-            <td>{user.cpf}</td>
-            <td>
-              <button onClick={() => {navigate(`/show/${user.id}`)}} >Detalhar</button>
-            </td>
-          </tr>
-        ))}
-      </table>
+      <div className='homeContainer'>
+        <Link to="/create" className='create-button'>Adicionar Usuário</Link>
+        
+
+        <div className='content'>
+          
+          {users.map((user, key) => (
+          <div className='card' key={key}>
+            <div className=''>
+              <img src={user.avatarURL} alt="avatar" />
+            </div>
+            <div className='cardFullname'>
+              <div className='label'>Name</div>
+              <div className='cardInfo'>{user.fullName}</div>
+            </div>
+            <div className='cardCpf'>
+              <div className='label'>Cpf</div>
+              <div className='cardInfo'>{user.cpf}</div>
+            </div>
+            <div className='cardPhone'>
+              <div className='label'>Telefone</div>
+              <div className='cardInfo'>{user.phone}</div>
+            </div>
+            <div className='cardAction'>
+              <button className='buttonShowUser' onClick={() => {navigate(`/show/${user.id}`)}} >Detalhar</button>
+            </div>
+          </div>
+          ))}
+        </div>
+
+      </div>
     </>
   )
 }

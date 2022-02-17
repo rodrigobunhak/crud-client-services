@@ -1,13 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+
 * {
   padding: 0;
-  /* border: 0; */
+  border: 0;
   margin: 0;
 }
 
-.App {
-  text-align: center;
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #272727;
 }
+
+/* .App {
+  text-align: center;
+} */
 
 table, th, td {
   border:1px solid black;
+}
+
+table th {
+  background: rgb(63, 116, 163);
+}
+
+.homeContainer {
+  display: flex;
+  margin: 16px auto;
+  flex-direction: column;
+  /* border: 1px yellow solid; */
+  width: 1000px;
+  
+}
+
+.headerContainer {
+  background: #2A4CA3;
+  height: 128px;
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  color: #FFFFFF;
+  margin-left: 16px;
+  font-size: 48px;
+}
+
+.create-button {
+  width: 150px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2A4CA3;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.button {
+  /* width: 200px;
+  align-self: flex-end; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2A4CA3;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.content {
+  /* background: #2A4CA3; */
+  display: flex;
+  flex-direction: column;
+}
+
+.contentHeader {
+  background: gray;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  background: #d3d3d3;
+  align-items: center;
+  padding: 5px 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+.card:hover {
+  filter: brightness(0.9);
+}
+
+.cardFullname {
+  /* background: red; */
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  margin-left: 8px;
+}
+
+.cardCpf {
+  /* background: green; */
+  flex: 2;
+}
+
+.cardPhone {
+  /* background: yellow; */
+  flex: 2;
+}
+
+.cardAction {
+  /* background: orange; */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.cardInfo {
+  font-size: 16px;
+}
+
+
+.showCardContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.showCardContentLine1,
+.showCardContentLine2,
+.showCardContentLine3,
+.showCardContentLine4 {
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.buttonShowUser {
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonShowUser:hover {
+  background: #2A4CA3;
+  color: #FFFFFF;
+}
+
+.buttonUpdateUser {
+  padding: 8px;
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonDeleteUser {
+  padding: 8px;
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+select {
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* height: 50px; Remove default arrow Add custom arrow */
+}
+
+
+/* CREATE */
+
+.create-container__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 730px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+.create-container__header h1 {
+  color: #FFFFFF;
+}
+
+.create-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #2A4CA3;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.create-container__line {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.create-container__line__2 {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 10px;
+
+}
+
+.create-container__line__2 div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.create-container label {
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  /* font-weight: thin; */
+}
+
+.create-container input {
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.create-container button {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+
+
+/* UPDATE */
+
+
+.update-container__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 730px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+.update-container__header h1 {
+  color: #FFFFFF;
+}
+
+.update-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #2A4CA3;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.update-container__line {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.update-container__line__2 {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 10px;
+
+}
+
+.update-container__line__2 div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.update-container label {
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  /* font-weight: thin; */
+}
+
+.update-container input {
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.update-container button {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+
+/* SHOW */
+
+.show-container__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 730px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+.show-container__header h1 {
+  color: #FFFFFF;
+}
+
+.show-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #2A4CA3;
+  padding: 16px;
+  border-radius: 5px;
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.show-container__avatar img {
+  width: 150px;
+  height: 150px;
+}
+
+.show-container__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.show-container__content__line {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-container__content__line .field {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-bottom: 1px solid #1d3d8d;
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+.show-container__content__line .value {
+  color: #FFFFFF;
+  margin: 10px 0 20px 0 ;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.show-container__content button {
+  width: 150px;
+  padding: 16px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.show-container__content .delete:hover {
+  background: #c53535;
+  color: #ffffff;
+  transition: 0.2s;
 }

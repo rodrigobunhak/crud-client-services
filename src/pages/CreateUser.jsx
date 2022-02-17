@@ -21,6 +21,8 @@ const CreateUser = () => {
   const handleForm = (event) => {
     const { name, value } = event.target;
     
+    console.log(event)
+
     setUser({
       ...user,
       [name]: value,
@@ -41,54 +43,66 @@ const CreateUser = () => {
     navigate("/")
   }
 
+  console.log(user)
+
   return (
     <>
       <Header />
-      <h1>CreateUser</h1>
       
-      <Link to="/">Volta para página Home</Link>
-      <table>
-          <tr>
-            <td>Nome completo</td>
-            <td>CPF</td>
-            <td>Apelido</td>
-            <td>Genero</td>
-            <td>Telefone</td>
-            <td>Endereço</td>
-            <td>Observaçoes</td>
-            <td>Avatar URL</td>
-            <td>Action</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="text" name="fullName" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="cpf" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="surname" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="gender" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="phone" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="address" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="observation" onChange={handleForm} />
-            </td>
-            <td>
-              <input type="text" name="avatarURL" onChange={handleForm} />
-            </td>
-            <td>
-              <button onClick={handleCreateUser}>Add User</button>
-            </td>
-          </tr>
-        </table>
+        <div className='create-container__header'>
+          <h1>CreateUser</h1>
+          <Link to="/" className='button'>Volta para página Home</Link>
+        </div>
+
+        <div className='create-container'>
+
+          <div className='create-container__line'>
+            <label className='create-container__line__label'>Nome completo</label>
+            <input type="text" name="fullName" onChange={handleForm} className='create-container__line__input' />
+          </div>
+          <div className='create-container__line__2'>
+            <div>
+              <label className='create-container__line__label'>Cpf</label>
+              <input type="text" name="cpf" onChange={handleForm} className='create-container__line__input' />
+            </div>
+            <div>
+              <label className='create-container__line__label'>Apelido</label>
+              <input type="text" name="surname" onChange={handleForm} className='create-container__line__input' />
+            </div>
+          </div>
+          <div className='create-container__line__2'>
+            <div>
+              <label className='create-container__line__label'>Telefone</label>
+              <input type="text" name="phone" onChange={handleForm} className='create-container__line__input' />
+            </div>
+            <div>
+              <label className='create-container__line__label'>Genero</label>
+              <select name="gender" onChange={handleForm}>
+                  <option value="" default> </option>
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="outro">Outro</option>
+                </select>
+            </div>
+          </div>
+          <div className='create-container__line'>
+            <label className='create-container__line__label'>Endereço</label>
+            <input type="text" name="address" onChange={handleForm} className='create-container__line__input' />
+          </div>
+          <div className='create-container__line'>
+            <label className='create-container__line__label'>Observação</label>
+            <input type="text" name="observation" onChange={handleForm} className='create-container__line__input' />
+          </div>
+          <div className='create-container__line'>
+            <label className='create-container__line__label'>Avatar URL</label>
+            <input type="text" name="avatarURL" onChange={handleForm} className='create-container__line__input' />
+          </div>
+          <div className='create-container__line'>
+            <button onClick={handleCreateUser}>Add User</button>
+          </div>
+        </div>
+      
+      
     </>
   )
 }
